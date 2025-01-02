@@ -7,8 +7,134 @@
     <link rel="icon" type="image/svg+xml" href="src/favicon.svg">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
+    <style>
+        .about_us:before{
+            content: no-close-quote;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: -250px;
+            height: 250px;
+            background: url('src/home/at.png');
+            background-size: cover;
+        }
+        .about_us:after{
+            content: no-close-quote;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            top: 0;
+            /* height: 250px; */
+            background: url('src/home/flower_bg_about.webp');
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+    </style>
+    <!-- Hero Section -->
+    <section class="relative bg-cover bg-center h-screen" style="background-image: url('src/home/banner.webp');">
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <!-- Content -->
+        <div class="relative z-10 flex flex-col items-center justify-center h-[calc(100%-100px)] text-white text-center px-4">
+            <h1 class="text-4xl font-bold mb-4">Cooking. Tasting. Living</h1>
+            <button class="bg-white text-[#333] px-[30px] py-[15px] rounded-full font-medium hover:bg-gray-200 transition">
+                Check Our Menu
+            </button>
+        </div>
+        <!-- Curved Bottom -->
+        <div class="absolute -bottom-14 w-full bg-contain" style="background-image: url('src/home/wave_bg_1.webp');">
+            <img src="src/home/x.png" alt="" class="w-full ">
+        </div>
+    </section>
+    <!-- service -->
+    <div class="container relative">
+        <h1 class="text-center text-4xl font-bold py-10 absolute md:top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[#E34C80]">Our Services</h1>
+        <div class=" w-[90%] md:w-4/5 m-auto grid gap-5 md:gap-0">
+            <div class=" grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+                <img src="src/home/c_1.webp" alt="" class="w-full object-cover order-1" data-aos="fade-right" data-aos-delay="500">
+                <div class="order-2" data-aos="fade-left" data-aos-delay="500">
+                    <h3 class="text-2xl text-black font-bold mb-5">Cake</h3>
+                    <p class="text-black mb-5">
+                        Discover the art of cake-making with our stunning and delicious creations,
+                        crafted to perfection for any occasion. From birthdays to weddings, our cakes
+                        are masterpieces of flavor and design, tailored to your unique preferences.
+                        Using only premium ingredients, we ensure each cake is as delightful to taste
+                        as it is to behold. Make your celebrations truly extraordinary with our signature
+                        cakes, where elegance and taste come together in perfect harmony.</p>
+                    <button class="bg-[#E34C80] text-white px-6 py-3 rounded-full font-medium hover:bg-gray-200 transition">
+                        Shop Now
+                    </button>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center flex-row-reverse">
+                <img src="src/home/c_2.webp" alt="" class="w-full object-cover order-1 md:order-2" data-aos="fade-right" data-aos-delay="500">
+                <div class="order-2 md:order-1" data-aos="fade-left" data-aos-delay="500">
+                    <h3 class="text-2xl text-black font-bold mb-5">Restaurant</h3>
+                    <p class="text-black mb-5">
+                        Experience culinary excellence at our renowned restaurant, where sophistication meets flavor.
+                         Our menu showcases a variety of exquisite dishes, from savory delights to heavenly desserts, 
+                         all crafted with fresh, high-quality ingredients. Perfect for casual dining or celebrating special moments, 
+                         our restaurant offers a warm and elegant ambiance that makes every meal an occasion to savor. Elevate your 
+                         dining experience with a touch of Jordanian charm and world-class service.th our signature
+                    </p>
+                    <button class="bg-[#E34C80] text-white px-6 py-3 rounded-full font-medium hover:bg-gray-200 transition">
+                        Shop Now
+                    </button>
+                </div>
+            </div>
+            <div class=" grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+                <img src="src/home/c_3.webp" alt="" class="w-full object-cover order-1" data-aos="fade-right" data-aos-delay="500">
+                <div class="order-2" data-aos="fade-left" data-aos-delay="500">
+                    <h3 class="text-2xl text-black font-bold mb-5">Cookie</h3>
+                    <p class="text-black mb-5">
+                        Indulge in the irresistible charm of our freshly baked cookies, crafted with love and the finest ingredients. 
+                        Each bite delivers a perfect balance of crunch and gooeyness, loaded with decadent chocolate chips that melt 
+                        in your mouth. Ideal for gifting, snacking, or pairing with your favorite beverage, our cookies are a treat for
+                         all occasions. Experience the joy of premium flavors and exceptional quality with every bite.
+                        </p>
+                    <button class="bg-[#E34C80] text-white px-6 py-3 rounded-full font-medium hover:bg-gray-200 transition">
+                        Shop Now
+                    </button>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center flex-row-reverse">
+                <img src="src/home/c_4.webp" alt="" class="w-full object-cover order-1 md:order-2" data-aos="fade-right" data-aos-delay="500">
+                <div class="order-2 md:order-1" data-aos="fade-left" data-aos-delay="500">
+                    <h3 class="text-2xl text-black font-bold mb-5">Organizing parties</h3>
+                    <p class="text-black mb-5">
+                        Transform your celebrations into unforgettable experiences with our party organization services. Whether '
+                        you’re hosting a birthday, anniversary, or corporate event, we craft the perfect ambiance with elegant
+                         designs and mouthwatering cakes that steal the spotlight. Our expertise ensures every detail is thoughtfully 
+                         executed, from exquisite decorations to delectable desserts, guaranteeing your event is both memorable and stress-free.
+                          Let us bring your vision to life and make your special day one to remember.
+                    </p>
+                    <button class="bg-[#E34C80] text-white px-6 py-3 rounded-full font-medium hover:bg-gray-200 transition">
+                        Shop Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- about us --> 
+    <div class="about_us relative text-center my-[250px] p-[100px] bg-[#f5f5f5]">
+        <div class="container relative z-10 h-full flex items-center justify-center">
+            <div class="text-center">
+                <h1 class="text-4xl font-bold mb-4 text-[#E34C80]" data-aos="fade-down">About Us</h1>
+                <p class="text-lg text-black my-4" data-aos="fade-left">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat porro atque corrupti dolore dolorum maxime alias eos blanditiis error at saepe illo cum accusantium, debitis exercitationem dignissimos perspiciatis. Omnis, ab?</p>
+                <div class="btn_download flex justify-center items-center" data-aos="fade-right">
+                    <img src="src/home/g_play_app_store_logo.webp" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="js/app.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 </html>
