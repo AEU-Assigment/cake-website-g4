@@ -128,13 +128,13 @@
     <div class="contain">
       <div class="breadcrumb">
         <a href="#">Home</a><span>/</span>
-        <span>Our Services</span>
+        <span>Our Product</span>
       </div>
       <div class="container relative">
         <h1
           class="text-center text-4xl font-bold py-10 absolute md:top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[#E34C80]"
         >
-          Our Services
+          Our Product
         </h1>
         <div
           class="w-[90%] md:w-4/5 m-auto product-grid"
@@ -152,55 +152,8 @@
       AOS.init();
     </script>
     <script>
-      //   const services = [
-      //     { id: 1, img: "../src/shop/c1.webp", productName: "New Year Cake" },
-      //     { id: 2, img: "../src/shop/c2.webp", productName: "Cake" },
-      //     { id: 3, img: "../src/shop/c3.webp", productName: "Food Menu" },
-      //     { id: 4, img: "../src/shop/c4.webp", productName: "Cake Pieces" },
-      //     { id: 5, img: "../src/shop/c5.webp", productName: "Catering" },
-      //     { id: 6, img: "../src/shop/c6.webp", productName: "Design Order" },
-      //     { id: 7, img: "../src/shop/c7.webp", productName: "Ice Cream" },
-      //     { id: 8, img: "../src/shop/c8.webp", productName: "Mr Cookies" },
-      //     {
-      //       id: 9,
-      //       img: "../src/shop/c9.webp",
-      //       productName: "Gift Box and Moajonat",
-      //     },
-      //     { id: 10, img: "../src/shop/c10.webp", productName: "Accessory" },
-      //     { id: 11, img: "../src/shop/c11.webp", productName: "Flower" },
-      //   ];
-
-      //   const serviceGrid = document.getElementById("product-grid");
-      //   if (serviceGrid) {
-      //     services.forEach((service, index) => {
-      //       const delay = 500 + index * 100;
-      //       const serviceItem = document.createElement("div");
-      //       serviceItem.className = "product-item";
-      //       serviceItem.setAttribute(
-      //         "data-aos",
-      //         index % 2 === 0 ? "fade-right" : "fade-left"
-      //       );
-      //       serviceItem.setAttribute("data-aos-delay", delay);
-
-      //       // Set service id as a data attribute
-      //       serviceItem.setAttribute("data-id", service.id);
-
-      //       serviceItem.innerHTML = `
-      //   <img src="${service.img}" alt="${service.productName}" />
-      //   <h3>${service.productName}</h3>
-      // `;
-
-      //       // Add click event listener
-      //       serviceItem.addEventListener("click", () => {
-      //         console.log(`Clicked service ID: ${service.id}`);
-      //       });
-
-      //       serviceGrid.appendChild(serviceItem);
-      //     });
-      //   }
-
-      //   AOS.init();
-      const services = [
+   
+      const products = [
         { id: 1, img: "../src/shop/c1.webp", productName: "New Year Cake" },
         { id: 2, img: "../src/shop/c2.webp", productName: "Cake" },
         { id: 3, img: "../src/shop/c3.webp", productName: "Food Menu" },
@@ -218,32 +171,31 @@
         { id: 11, img: "../src/shop/c11.webp", productName: "Flower" },
       ];
 
-      const serviceGrid = document.getElementById("product-grid");
-      if (serviceGrid) {
-        services.forEach((service, index) => {
+      const productGrid = document.getElementById("product-grid");
+      if (productGrid) {
+        products.forEach((service, index) => {
           const delay = 500 + index * 100;
-          const serviceItem = document.createElement("div");
-          serviceItem.className = "product-item";
-          serviceItem.setAttribute(
+          const productItem = document.createElement("div");
+          productItem.className = "product-item";
+          productItem.setAttribute(
             "data-aos",
             index % 2 === 0 ? "fade-right" : "fade-left"
           );
-          serviceItem.setAttribute("data-aos-delay", delay);
+          productItem.setAttribute("data-aos-delay", delay);
 
-          // Set service id as a data attribute
-          serviceItem.setAttribute("data-id", service.id);
+          productItem.setAttribute("data-id", service.id);
 
-          serviceItem.innerHTML = `
+          productItem.innerHTML = `
       <img src="${service.img}" alt="${service.productName}" />
       <h3>${service.productName}</h3>
     `;
 
           // Add click event listener
-          serviceItem.addEventListener("click", () => {
+          productItem.addEventListener("click", () => {
             console.log(`Clicked service ID: ${service.id}`);
           });
 
-          serviceGrid.appendChild(serviceItem);
+          productGrid.appendChild(productItem);
         });
       }
 
