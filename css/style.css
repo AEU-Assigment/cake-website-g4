@@ -635,3 +635,9 @@ video {
   background-color: #ff4081;
   color: white;
 }
+
+
+.text-secondary {
+  --tw-text-opacity: 1;
+  color:  #5B5B5B;
+}

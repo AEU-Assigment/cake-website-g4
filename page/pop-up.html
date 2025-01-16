@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pop-Up UI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            height: 100%;
+            width: 300px;
+        }
+
+        .popup h2 {
+            margin: 0 0 10px;
+        }
+
+        .popup p {
+            margin: 10px 0;
+        }
+
+        .close-btn {
+            background: #ff5c5c;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .close-btn:hover {
+            background: #ff1c1c;
+        }
+
+        .show-popup {
+            display: flex;
+        }
+
+        .open-btn {
+            background: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .open-btn:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <button class="open-btn" onclick="openPopup()">Open Pop-Up</button>
+
+    <div class="overlay" id="popupOverlay">
+        <div class="popup">
+            <h2>Pop-Up Title</h2>
+            <p>This is a sample pop-up message. You can customize it!</p>
+            <button class="close-btn" onclick="closePopup()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        function openPopup() {
+            document.getElementById('popupOverlay').classList.add('show-popup');
+        }
+
+        function closePopup() {
+            document.getElementById('popupOverlay').classList.remove('show-popup');
+        }
+    </script>
+
+</body>
+</html>

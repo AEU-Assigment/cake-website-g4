@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/product.css" />
+
+  <style>
+    input[type="number"] {
+      -moz-appearance: none;
+    }
+
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- product-->
+  <section class="m-auto mt-4 w-[80%]">
+    <!-- sub-manu -->
+    <menu class="list-none">
+      <ul class="flex gap-3 my-4">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Product</a></li>
+        <li class="text-primary"><a href="#">Donat</a></li>
+      </ul>
+    </menu>
+    <section   id="productDetail" class="md:flex block" id="product-detail">
+      <!-- product-mini image  -->
+
+      <!-- product main image  -->
+      <div class="lg:w-[40%] md:w-[50%] w-full flex p-2">
+        <div class="w-[10%]">
+          <img id="miniBox" src="" alt="" />
+        </div>
+        <img id="mainBox" src="" class="w-[90%] border rounded-lg"  alt="" />
+      </div>
+      <div class="product-title lh:w-[60%] md:w-[50%] w-full px-2  grid grid-flow-row">
+        <div>
+
+          <h2 id="productName" class="text-lg text-secondary font-bold">Donat</h2>
+          <p id="productPrice" class="price text-primary font-bold my-2">10.00 USD</p>
+          <p  id="productNoted" class="my-4 text-end">There are multiple matches for Donat</p>
+        </div>
+        <div>
+          <!-- form -->
+
+          <form  class="w-full mx-auto">
+            <!-- input quantity  -->
+            <div>
+              <label class="text-primary font-semibold" for="number">Quality*</label>
+
+              <div class="relative flex items-center w-full h-[48px]">
+                <button  onclick="decreaseQuantity('1')" type="button"  data-input-counter-decrement="bedrooms-input"
+                  class="border border-gray-300 rounded-s-xl p-3 h-11">
+                  <svg class="w-3 h-3 text-gray-900 dark:text-gray-600" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M1 1h16" />
+                  </svg>
+                </button>
+                <input type="number"  id="quantity-1" data-input-counter value="1" min="0" data-input-counter-min="1"
+                  data-input-counter-max="5"
+                  class="border border-x-0 border-gray-300 h-11 font-medium text-center text-gray-900 text-sm block w-full focus:outline-none"
+                  placeholder="" required />
+
+                <button  onclick="increaseQuantity('1')" type="button"  data-input-counter-increment="bedrooms-input"
+                  class="border border-gray-300 rounded-e-xl p-3 h-11">
+                  <svg class="w-3 h-3 text-gray-900 dark:text-gray-500" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M9 1v16M1 9h16" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <!-- input note  -->
+            <div class="relative items-center my-4 w-full h-[48px]">
+              <label class="text-primary font-semibold my-2" for="number">Noted*</label>
+
+              <input type="text"
+                class="border rounded-xl border-gray-300 h-11 font-medium text-center text-gray-900 text-sm block w-full focus:outline-none"
+                placeholder="Noted*" id="note-1"  required />
+            </div>
+            <button onclick="addToCart(event)" id="" class="add-to-cart mt-4 border rounded-3xl py-2 px-4 bg-primary text-white">Add to
+              cart</button>
+          </form>
+        </div>
+      </div>
+
+    </section>
+    <!-- related product  -->
+    <section class="my-4">
+      <h1 class="my-6 font-bold text-2xl">Related Product</h1>
+      <!-- <div class="items flex flex-wrap  gap-4">
+
+        
+        <div class="item-box  border rounded-md border-red-800">
+          <div class="bg-gray-300">
+            <img src="../src/product/branch.jpg" c alt="">
+          </div>
+          <h3 class="">hello picachou</h3>
+          <p class="price text-primary font-semibold">100.00 USD</p>
+        </div>
+        <div class="item-box border rounded-md border-red-800">
+          <div class=" bg-gray-300">
+            <img src="../src/product/branch.jpg"  alt="">
+          </div>
+          <h3 class="">hello picachou ad ss as asd as asdf4eterrt e ert D AS DASDad ads f sdf ds</h3>
+          <p class="price text-primary font-semibold">100.00 USD</p>
+        </div>
+      </div> -->
+      <div class="container md:justify-start justify-center">
+        <div class="box md:w-[200px] w-[80%]">
+            <div>
+
+                <img src="../src/product/branch.jpg" alt="Um Ali Box">
+            </div>
+                <h3>Um Ali Box</h3>
+                <p>7.00</p>
+        </div>
+        <div class="box md:w-[200px] w-[80%]">
+            <div>
+
+                <img src="../src/product/branch.jpg" alt="Chocolate Chip Cookie Box">
+            </div>
+                <h3>Chocolate Chip Cookie Box Winter sdf  sdf s sdf sdf </h3>
+                <p>7.00</p>
+        </div>
+        <div class="box md:w-[200px] w-[80%]"> 
+            <div>
+
+                <img src="../src/product/branch.jpg" alt="Cinnamon Roll Box">
+            </div>
+                <h3>Cinnamon Roll Box</h3>
+                <div class="flex gap-2">
+
+                  <p>7.00</p><p>USD</p>
+                </div>
+        </div>
+    </div>
+    </div>
+
+      <!-- <div class="item border rounded-md border-red-800">
+            <div class="item-img overflow-hidden p-4 flex  justify-center items-center box-border bg-gray-200 rounded-md">
+                <img src="../src/product/branch.jpg" class="object-cover  w-full h-auto block" alt="">
+            </div>
+            <div class="item-describe grid grid-flow-row content-between gap-2 p-4">
+              <p class="describe">hello picachou sdfsd f  sdf sdf saasda</p>
+              <p class="price text-primary font-semibold">100.00 USD</p>
+            </div>
+          </div> -->
+      <!-- <div class="item border rounded-md border-red-800">
+            <div class="item-img p-4 bg-gray-200 rounded-md">
+                <img src="../src/product/branch.jpg" alt="">
+            </div>
+            <div class="item-describe grid grid-flow-row content-end gap-2 p-4">
+              <p class="describe">hello picachou sdf sdf ssdf s sdf sdf </p>
+              <p class="price text-primary font-semibold align-bottom">100.00 USD</p>
+            </div>
+          </div> -->
+      </div>
+    </section>
+  </section>
+  <button class="open-btn" onclick="openPopup()">Open Pop-Up</button>
+
+  <div class="overlay" id="popupOverlay">
+      <div class="popup">
+        <div id="cart" class="cart">
+          <p>No items in the cart.</p>
+      </div>
+          <button class="close-btn" onclick="closePopup()">Close</button>
+      </div>
+  </div>
+<script src="../js/app-store.js"></script>
+<script src="../js/add.js"></script>
+ 
+</body>
+
+</html>
