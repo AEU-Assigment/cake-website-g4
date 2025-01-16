@@ -1,14 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shop</title>
-    <link rel="icon" type="image/svg+xml" href="../src/favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="../src/favicon.svg" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
-    <script src="../js/app.js"></script>
-</body>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  </head>
+  <body>
+    <style>
+      .contain {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .breadcrumb {
+        width: 80%;
+        display: flex;
+        align-self: center;
+        margin: 20px 0;
+      }
+
+      .breadcrumb span {
+        text-decoration: none;
+        color: #e34c80;
+        margin-right: 5px;
+      }
+
+      .breadcrumb a {
+        margin-right: 5px;
+        color: #333;
+      }
+
+      .container {
+        position: relative;
+        width: 80%;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        top: 0;
+        background: url("../src/shop/flower-r.png") no-repeat center center;
+        background-size: 500px auto;
+        background-position: right bottom;
+        z-index: -1;
+        filter: brightness(1.1) contrast(1.2);
+      }
+
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3rem;
+        margin-top: 50px;
+        margin-bottom: 20%;
+        justify-items: center;
+        align-items: center;
+      }
+
+      .product-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 1.5rem;
+        border-radius: 10px;
+        background-color: transparent;
+        box-shadow: none;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        background-image: url("../src/shop/bg_cake.webp");
+        background-position: center center;
+        background-size: 150%;
+        background-repeat: no-repeat;
+        height: 300px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .product-item:hover {
+        transform: translateY(-5px);
+        box-shadow: none;
+      }
+
+      .product-item h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #e34c80;
+        margin-top: 1rem;
+      }
+
+      .product-footer {
+        position: relative;
+        z-index: 10;
+        margin-top: -150px;
+        padding: 100px;
+        background: #000000;
+      }
+
+      .product-footer:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -300px;
+        height: 300px;
+        background: linear-gradient(
+            rgba(255, 255, 255, 0.5),
+            rgba(255, 255, 255, 0.5)
+          ),
+          url("../src/shop/Image-pink.png") center center / cover no-repeat,
+          url("../src/shop/Image-grey.png") center top / cover no-repeat;
+        z-index: -1;
+      }
+    </style>
+
+    <div class="contain">
+      <div class="breadcrumb">
+        <a href="#">Home</a><span>/</span>
+        <span>Our Services</span>
+      </div>
+      <div class="container relative">
+        <h1
+          class="text-center text-4xl font-bold py-10 absolute md:top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[#E34C80]"
+        >
+          Our Services
+        </h1>
+        <div
+          class="w-[90%] md:w-4/5 m-auto product-grid"
+          id="product-grid"
+        ></div>
+      </div>
+    </div>
+    <div
+      class="product-footer relative text-center my-[250px] p-[100px] bg-[#000000]"
+    ></div>
+
+    <script src="js/app.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script>
+      //   const services = [
+      //     { id: 1, img: "../src/shop/c1.webp", productName: "New Year Cake" },
+      //     { id: 2, img: "../src/shop/c2.webp", productName: "Cake" },
+      //     { id: 3, img: "../src/shop/c3.webp", productName: "Food Menu" },
+      //     { id: 4, img: "../src/shop/c4.webp", productName: "Cake Pieces" },
+      //     { id: 5, img: "../src/shop/c5.webp", productName: "Catering" },
+      //     { id: 6, img: "../src/shop/c6.webp", productName: "Design Order" },
+      //     { id: 7, img: "../src/shop/c7.webp", productName: "Ice Cream" },
+      //     { id: 8, img: "../src/shop/c8.webp", productName: "Mr Cookies" },
+      //     {
+      //       id: 9,
+      //       img: "../src/shop/c9.webp",
+      //       productName: "Gift Box and Moajonat",
+      //     },
+      //     { id: 10, img: "../src/shop/c10.webp", productName: "Accessory" },
+      //     { id: 11, img: "../src/shop/c11.webp", productName: "Flower" },
+      //   ];
+
+      //   const serviceGrid = document.getElementById("product-grid");
+      //   if (serviceGrid) {
+      //     services.forEach((service, index) => {
+      //       const delay = 500 + index * 100;
+      //       const serviceItem = document.createElement("div");
+      //       serviceItem.className = "product-item";
+      //       serviceItem.setAttribute(
+      //         "data-aos",
+      //         index % 2 === 0 ? "fade-right" : "fade-left"
+      //       );
+      //       serviceItem.setAttribute("data-aos-delay", delay);
+
+      //       // Set service id as a data attribute
+      //       serviceItem.setAttribute("data-id", service.id);
+
+      //       serviceItem.innerHTML = `
+      //   <img src="${service.img}" alt="${service.productName}" />
+      //   <h3>${service.productName}</h3>
+      // `;
+
+      //       // Add click event listener
+      //       serviceItem.addEventListener("click", () => {
+      //         console.log(`Clicked service ID: ${service.id}`);
+      //       });
+
+      //       serviceGrid.appendChild(serviceItem);
+      //     });
+      //   }
+
+      //   AOS.init();
+      const services = [
+        { id: 1, img: "../src/shop/c1.webp", productName: "New Year Cake" },
+        { id: 2, img: "../src/shop/c2.webp", productName: "Cake" },
+        { id: 3, img: "../src/shop/c3.webp", productName: "Food Menu" },
+        { id: 4, img: "../src/shop/c4.webp", productName: "Cake Pieces" },
+        { id: 5, img: "../src/shop/c5.webp", productName: "Catering" },
+        { id: 6, img: "../src/shop/c6.webp", productName: "Design Order" },
+        { id: 7, img: "../src/shop/c7.webp", productName: "Ice Cream" },
+        { id: 8, img: "../src/shop/c8.webp", productName: "Mr Cookies" },
+        {
+          id: 9,
+          img: "../src/shop/c9.webp",
+          productName: "Gift Box and Moajonat",
+        },
+        { id: 10, img: "../src/shop/c10.webp", productName: "Accessory" },
+        { id: 11, img: "../src/shop/c11.webp", productName: "Flower" },
+      ];
+
+      const serviceGrid = document.getElementById("product-grid");
+      if (serviceGrid) {
+        services.forEach((service, index) => {
+          const delay = 500 + index * 100;
+          const serviceItem = document.createElement("div");
+          serviceItem.className = "product-item";
+          serviceItem.setAttribute(
+            "data-aos",
+            index % 2 === 0 ? "fade-right" : "fade-left"
+          );
+          serviceItem.setAttribute("data-aos-delay", delay);
+
+          // Set service id as a data attribute
+          serviceItem.setAttribute("data-id", service.id);
+
+          serviceItem.innerHTML = `
+      <img src="${service.img}" alt="${service.productName}" />
+      <h3>${service.productName}</h3>
+    `;
+
+          // Add click event listener
+          serviceItem.addEventListener("click", () => {
+            console.log(`Clicked service ID: ${service.id}`);
+          });
+
+          serviceGrid.appendChild(serviceItem);
+        });
+      }
+
+      AOS.init();
+    </script>
+  </body>
 </html>
