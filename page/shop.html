@@ -176,7 +176,7 @@
         products.forEach((service, index) => {
           const delay = 500 + index * 100;
           const productItem = document.createElement("div");
-          productItem.className = "product-item";
+          productItem.className = "product-item cursor-pointer";
           productItem.setAttribute(
             "data-aos",
             index % 2 === 0 ? "fade-right" : "fade-left"
