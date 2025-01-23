@@ -8,8 +8,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajaxgi/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajaxgi/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="css/owl.theme.default.css" />
 </head>
 <body>
     <style>
@@ -35,6 +36,32 @@
             /* height: 250px; */
             background: url('src/home/flower_bg_about.webp');
             background-size: contain;
+            background-repeat: no-repeat;
+        }
+        .footer:before{
+            width: 100%;
+            z-index: 10;
+            content: no-close-quote;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: -240px;
+            height: 240px;
+            background: url('src/home/wave_about_bg.webp') !important;
+            background-size: cover !important;
+            background-repeat: no-repeat;
+        }
+        .footer:after{
+            width: 100%;
+            content: no-close-quote;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            top: -240px;
+            height: 240px;
+            background: url('src/home/b.png');
+            background-size: cover !important;
             background-repeat: no-repeat;
         }
     </style>
@@ -115,7 +142,7 @@
         <!-- Content -->
         <div class="relative z-10 flex flex-col items-center justify-center h-[calc(100%-100px)] text-white text-center px-4">
             <h1 class="text-4xl font-bold mb-4">Cooking. Tasting. Living</h1>
-            <button class="bg-white text-[#333] px-[30px] py-[15px] rounded-full font-medium hover:bg-gray-200 transition">
+            <button class="bg-white text-[#333] px-[30px] py-[15px] rounded-full font-medium hover:bg-white hover:text-black border hover:border-[#e34c80] transition">
                 Check Our Menu
             </button>
         </div>
@@ -124,11 +151,56 @@
             <img src="src/home/x.png" alt="" class="w-full ">
         </div>
     </section>
+    <!-- promotion -->
+    <div class="relative">
+        <!-- Carousel Container -->
+        <div class="w-full relative">
+            <!-- Title -->
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-4">Promotion Day</h2>
+            <p class=" container mx-auto text-center text-gray-600 mb-8">
+                Indulge in sweetness! Treat yourself to our delicious cakes—made with love and the finest ingredients. Order now for a slice of happiness! 🍰
+            </p>
+            <!-- Carousel -->
+            <div class="owl-carousel owl-theme relative">
+                <!-- Card 1 -->
+                <div class="w-[400px] md:w[450px] lg:w-auto mx-auto transform transition-transform duration-300 card-shadow">
+                    <div class="bg-white rounded-2xl h-[700px] flex flex-col justify-center items-center p-6">
+                        <img src="src/home/c_1.webp" alt="Card 1" class="mb-4 object-fill">
+                        <h3 class="text-black text-2xl font-semibold mb-2">Donut</h3>
+                        <!-- <p class="text-black text-center">This is the first card in our amazing carousel.</p> -->
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="w-[400px] md:w[450px] lg:w-auto mx-auto transform  transition-transform duration-300 card-shadow">
+                    <div class="bg-white rounded-2xl h-[700px] flex flex-col justify-center items-center p-6 ">
+                        <img src="src/home/c_2.webp" alt="Card 2" class="mb-4 object-fill">
+                        <h3 class="text-black text-2xl font-semibold mb-2">Croisent</h3>
+                        <!-- <p class="text-black text-center">Explore the features and benefits of card 2.</p> -->
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="w-[400px] md:w[450px] lg:w-auto mx-auto transform transition-transform duration-300 card-shadow">
+                    <div class="bg-white rounded-2xl h-[700px] flex flex-col justify-center items-center p-6">
+                        <img src="src/home/c_3.webp" alt="Card 3" class="mb-4 object-fill">
+                        <h3 class="text-black text-2xl font-semibold mb-2">Cookie</h3>
+                        <!-- <p class="text-black text-center">Discover the beauty of card 3 and its message.</p> -->
+                    </div>
+                </div>
+            </div>
+            <!-- Dots and Navigation -->
+            <div class="flex justify-center mt-4">
+                <!-- Dots -->
+                <div class="owl-dots"></div>
+            </div>
+           
+        </div>
+    </div>
+    
     <!-- service -->
-    <div class="container relative">
+    <div class="container mx-auto relative mt-5 md:mt-10">
         <h1 class="text-center text-4xl font-bold py-10 absolute md:top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[#E34C80]">Our Services</h1>
         <div class=" w-[90%] md:w-4/5 m-auto grid gap-5 md:gap-0">
-            <div class=" grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+            <div class=" grid grid-cols-1 md:grid-cols-2 gap-20 items-center overflow-y-hidden overflow-x-hidden">
                 <img src="src/home/c_1.webp" alt="" class="w-full object-cover order-1" data-aos="fade-right" data-aos-delay="500">
                 <div class="order-2" data-aos="fade-left" data-aos-delay="500">
                     <h3 class="text-2xl text-black font-bold mb-5">Cake</h3>
@@ -139,12 +211,12 @@
                         Using only premium ingredients, we ensure each cake is as delightful to taste
                         as it is to behold. Make your celebrations truly extraordinary with our signature
                         cakes, where elegance and taste come together in perfect harmony.</p>
-                    <button class="bg-[#E34C80] text-white px-6 py-3 rounded-full font-medium hover:bg-gray-200 transition">
+                    <button class="bg-[#E34C80] text-white px-6 py-3 rounded-full font-medium hover:bg-white hover:text-black border hover:border-[#e34c80] transition">
                         Shop Now
                     </button>
                 </div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center flex-row-reverse">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center flex-row-reverse overflow-y-hidden overflow-x-hidden">
                 <img src="src/home/c_2.webp" alt="" class="w-full object-cover order-1 md:order-2" data-aos="fade-right" data-aos-delay="500">
                 <div class="order-2 md:order-1" data-aos="fade-left" data-aos-delay="500">
                     <h3 class="text-2xl text-black font-bold mb-5">Restaurant</h3>
@@ -155,12 +227,12 @@
                          our restaurant offers a warm and elegant ambiance that makes every meal an occasion to savor. Elevate your 
                          dining experience with a touch of Jordanian charm and world-class service.th our signature
                     </p>
-                    <button class="bg-[#E34C80] text-white px-6 py-3 rounded-full font-medium hover:bg-gray-200 transition">
+                    <button class="bg-[#E34C80] text-white px-6 py-3 rounded-full font-medium hover:bg-white hover:text-black border hover:border-[#e34c80] transition">
                         Shop Now
                     </button>
                 </div>
             </div>
-            <div class=" grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+            <div class=" grid grid-cols-1 md:grid-cols-2 gap-20 items-center overflow-y-hidden overflow-x-hidden">
                 <img src="src/home/c_3.webp" alt="" class="w-full object-cover order-1" data-aos="fade-right" data-aos-delay="500">
                 <div class="order-2" data-aos="fade-left" data-aos-delay="500">
                     <h3 class="text-2xl text-black font-bold mb-5">Cookie</h3>
@@ -170,12 +242,12 @@
                         in your mouth. Ideal for gifting, snacking, or pairing with your favorite beverage, our cookies are a treat for
                          all occasions. Experience the joy of premium flavors and exceptional quality with every bite.
                         </p>
-                    <button class="bg-[#E34C80] text-white px-6 py-3 rounded-full font-medium hover:bg-gray-200 transition">
+                    <button class="bg-[#E34C80] text-white px-6 py-3 rounded-full font-medium hover:bg-white hover:text-black border hover:border-[#e34c80] transition">
                         Shop Now
                     </button>
                 </div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center flex-row-reverse">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center flex-row-reverse overflow-y-hidden overflow-x-hidden">
                 <img src="src/home/c_4.webp" alt="" class="w-full object-cover order-1 md:order-2" data-aos="fade-right" data-aos-delay="500">
                 <div class="order-2 md:order-1" data-aos="fade-left" data-aos-delay="500">
                     <h3 class="text-2xl text-black font-bold mb-5">Organizing parties</h3>
@@ -186,7 +258,7 @@
                          executed, from exquisite decorations to delectable desserts, guaranteeing your event is both memorable and stress-free.
                           Let us bring your vision to life and make your special day one to remember.
                     </p>
-                    <button class="bg-[#E34C80] text-white px-6 py-3 rounded-full font-medium hover:bg-gray-200 transition">
+                    <button class="bg-[#E34C80] text-white px-6 py-3 rounded-full font-medium hover:bg-white hover:text-black border hover:border-[#e34c80] transition">
                         Shop Now
                     </button>
                 </div>
@@ -195,8 +267,8 @@
     </div>
     <!-- about us --> 
     <div class="about_us relative text-center my-[250px] p-[100px] bg-[#f5f5f5]">
-        <div class="container relative z-10 h-full flex items-center justify-center">
-            <div class="text-center">
+        <div class="container mx-auto relative z-10 h-full flex items-center justify-center">
+            <div class="text-center overflow-y-hidden overflow-x-hidden">
                 <h1 class="text-4xl font-bold mb-4 text-[#E34C80]" data-aos="fade-down">About Us</h1>
                 <p class="text-lg text-black my-4" data-aos="fade-left">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat porro atque corrupti dolore dolorum maxime alias eos blanditiis error at saepe illo cum accusantium, debitis exercitationem dignissimos perspiciatis. Omnis, ab?</p>
                 <div class="btn_download flex justify-center items-center" data-aos="fade-right">
@@ -204,19 +276,18 @@
                 </div>
             </div>
         </div>
+       
     </div>
-
-
     <!-- footer -->
-    <div class="relative">
+    <div class="relative z-[110]">
         <div class="fixed bottom-12 right-12">
-            <button class="bg-primary text-md text-white px-[18px] py-6 rounded-full font-medium hover:bg-gray-200 transition">
+            <button class="bg-primary text-md text-white px-[18px] py-6 rounded-full font-medium hover:bg-white hover:text-black border hover:border-[#e34c80] transition">
                 Shop
             </button>
         </div>
     </div>
     <footer>
-        <div class="bg-[#DBDBDB] px-[100px]">
+        <div class="bg-[#DBDBDB] px-[100px] footer relative z-[100]">
             <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
                 <div class="mx-auto w-full max-w-screen-xl">
                     <div class="grid grid-cols-1 gap-8 px-4 py-6 md:grid-cols-3">
@@ -267,12 +338,11 @@
                                 </div>
                           </ul>
                       </div>
+                    </div>
                 </div>
-         
-              </div>
             </div>
         </div>
-        <div class="bg-[#333333] ">
+        <div class="bg-[#333333]">
             <div class="md:flex md:items-center md:justify-between md:px-36 pt-6 md:pb-6">
                 <div class="flex mt-4 justify-center sm:mt-0">
                     <span class="text-md text-white font-semibold sm:text-center dark:text-gray-400">© 2023 All Rights Reserved.
@@ -340,12 +410,41 @@
               </div>
         </div>
     </footer>
-
-
     <script src="js/app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
     <script>
         AOS.init();
+        $(document).ready(function(){
+            $('.owl-carousel').owlCarousel({
+                items: 3,
+                loop: true, 
+                margin: 20, 
+                nav: true, 
+                navText: ['&#x2039;', '&#x203A;'], 
+                dots: true, 
+                autoplay: true, 
+                autoplayTimeout: 3000, 
+                autoplayHoverPause: true,
+                responsiveClass:true,
+                responsive:{
+                    0:{
+                        items:1,
+                        nav:true
+                    },
+                    600:{
+                        items:2,
+                        nav:false
+                    },
+                    1000:{
+                        items:3,
+                        nav:true,
+                        loop:false
+                    }
+                }
+            });
+        });
     </script>
 </body>
 </html>
