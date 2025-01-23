@@ -89,8 +89,8 @@
       }
 
       .product-item:hover {
-        transform: translateY(-5px);
-        box-shadow: none;
+        transform: translateY(-10px) scale(1.05);
+        opacity: 0.9;
       }
 
       .product-item h3 {
@@ -119,6 +119,34 @@
           url("../src/shop/Image-pink.png") center center / cover no-repeat,
           url("../src/shop/Image-grey.png") center top / cover no-repeat;
         z-index: -1;
+      }
+
+      @media screen and (max-width: 1440px) {
+        .container {
+          width: 100%;
+        }
+      }
+
+      @media screen and (max-width: 390px) {
+        .product-grid {
+          grid-template-columns: 1fr; 
+          gap: 10px;
+        }
+
+        .product-item {
+          width: 100%; 
+          border: 1px solid #e34c80;
+          padding: 10px;
+          border-radius: 8px; 
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          background-color: #fff;
+          background-image: none;
+          margin-bottom: 25px;
+          margin-top: -5px;
+        }
+        .container h1{
+          font-size: 22px;
+        }
       }
     </style>
       <!--Header-->
@@ -193,13 +221,13 @@
     <div class="contain">
       <div class="breadcrumb">
         <a href="#">Home</a><span>/</span>
-        <span>Our Product</span>
+        <span>Product</span>
       </div>
       <div class="container relative">
         <h1
           class="text-center text-4xl font-bold py-10 absolute md:top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[#E34C80]"
         >
-          Our Product
+          Shop By Category
         </h1>
         <div
           class="w-[90%] md:w-4/5 m-auto product-grid"
@@ -373,7 +401,7 @@
       const productGrid = document.getElementById("product-grid");
       if (productGrid) {
         products.forEach((service, index) => {
-          const delay = 500 + index * 100;
+          const delay = 10 + index * 100;
           const productItem = document.createElement("div");
           productItem.className = "product-item cursor-pointer";
           productItem.setAttribute(
@@ -386,7 +414,7 @@
 
           productItem.innerHTML = `
       <img src="${service.img}" alt="${service.productName}" />
-      <h3>${service.productName}</h3>
+      <h3 style="font-size: 22px;">${service.productName}</h3>
     `;
 
           // Add click event listener
