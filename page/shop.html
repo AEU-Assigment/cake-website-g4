@@ -379,23 +379,19 @@
       AOS.init();
     </script>
     <script>
-   
+
       const products = [
-        { id: 1, img: "../src/shop/c1.webp", productName: "New Year Cake" },
-        { id: 2, img: "../src/shop/c2.webp", productName: "Cake" },
-        { id: 3, img: "../src/shop/c3.webp", productName: "Food Menu" },
-        { id: 4, img: "../src/shop/c4.webp", productName: "Cake Pieces" },
-        { id: 5, img: "../src/shop/c5.webp", productName: "Catering" },
-        { id: 6, img: "../src/shop/c6.webp", productName: "Design Order" },
-        { id: 7, img: "../src/shop/c7.webp", productName: "Ice Cream" },
-        { id: 8, img: "../src/shop/c8.webp", productName: "Mr Cookies" },
-        {
-          id: 9,
-          img: "../src/shop/c9.webp",
-          productName: "Gift Box and Moajonat",
-        },
-        { id: 10, img: "../src/shop/c10.webp", productName: "Accessory" },
-        { id: 11, img: "../src/shop/c11.webp", productName: "Flower" },
+        { id: 1, img: "../src/shop/c1.webp", productName: "New Year Cake", sizes: ["SM", "X", "XL"] },
+        { id: 2, img: "../src/shop/c2.webp", productName: "Cake", sizes: ["SM", "X"] },
+        { id: 3, img: "../src/shop/c3.webp", productName: "Food Menu", sizes: [] }, // No sizes available
+        { id: 4, img: "../src/shop/c4.webp", productName: "Cake Pieces", sizes: ["X"] },
+        { id: 5, img: "../src/shop/c5.webp", productName: "Catering", sizes: ["SM", "XL"] },
+        { id: 6, img: "../src/shop/c6.webp", productName: "Design Order", sizes: ["SM", "X", "XL"] },
+        { id: 7, img: "../src/shop/c7.jpg", productName: "Cake Plate", sizes: ["SM", "X"] },
+        { id: 8, img: "../src/shop/c8.webp", productName: "Mr Cookies", sizes: ["XL"] },
+        { id: 9, img: "../src/shop/c9.jpg", productName: "Cheese Cake", sizes: [] }, // No sizes available
+        { id: 10, img: "../src/shop/c10.jpg", productName: "Mini Cake", sizes: ["SM", "X", "XL"] },
+        { id: 11, img: "../src/shop/c11.jpg", productName: "Ready Cake", sizes: ["SM"] },
       ];
 
       const productGrid = document.getElementById("product-grid");
