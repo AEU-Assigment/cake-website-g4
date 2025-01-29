@@ -1,84 +1,123 @@
+function openPopup() {
+    document.getElementById("popupOverlay").classList.add("show-popup");
+}
 
-        let cart = [];
-// qulity button 
-        function increaseQuantity(productId) {
-            const quantityInput = document.getElementById(`quantity-${productId}`);
-            quantityInput.value = parseInt(quantityInput.value) + 1;
-        }
+function closePopup() {
+    document.getElementById("popupOverlay").classList.remove("show-popup");
+}
 
-        function decreaseQuantity(productId) {
-            const quantityInput = document.getElementById(`quantity-${productId}`);
-            const currentValue = parseInt(quantityInput.value);
-            if (currentValue > 1) {
-                quantityInput.value = currentValue - 1;
-            }
-        }
+// Initialize cart from localStorage
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-        function addToCart(event) {
-            const productElement = event.target.parentElement;
-            const productId = productElement.getAttribute('data-id');
-            const productName = productElement.getAttribute('data-name');
-            const productPrice = parseFloat(productElement.getAttribute('data-price'));
-            console.log('data-id',productId);
-            
-            const productQuantity = parseInt(document.getElementById(`quantity-${productId}`).value);
-            const productNote = document.getElementById(`note-${productId}`).value;
-            const productImage = productElement.querySelector('img').src;
+// Save cart to localStorage
+function saveCartToLocalStorage() {
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
 
-            const existingProduct = cart.find(item => item.id === productId);
+// Add item to the cart
+function addToCart(event) {
+    event.preventDefault();
+    const productElement = document.getElementById("productDetail");
+    const productId = productElement.getAttribute("data-id");
+    const productName = productElement.getAttribute("data-name");
+    const productPrice = parseFloat(productElement.getAttribute("data-price")) || 0; // Default to 0 if price is not available
+    const selectedSize = productElement.getAttribute("data-size");
+    const quantityInput = document.getElementById(`quantity-${productId}`);
+    const productQuantity = parseInt(quantityInput.value) || 1;
+    const productImage = productElement.querySelector("img").src;
+    const describe = document.getElementById("productDescribe").textContent; // Description field not present in new structure
 
-            if (existingProduct) {
-                existingProduct.quantity += productQuantity;
-                existingProduct.note = productNote;
-            } else {
-                cart.push({
-                    id: productId,
-                    name: productName,
-                    price: productPrice,
-                    quantity: productQuantity,
-                    note: productNote,
-                    image: productImage
-                });
-            }
+    if (!selectedSize) {
+        alert("Please select a size before adding to cart.");
+        return;
+    }
 
-            updateCart();
-        }
+    const existingProduct = cart.find(item => item.id === productId && item.size === selectedSize);
 
-        function updateCart() {
-            const cartContainer = document.getElementById('cart');
+    if (existingProduct) {
+        existingProduct.quantity += productQuantity;
+    } else {
+        cart.push({
+            id: productId,
+            name: productName,
+            price: productPrice,
+            quantity: productQuantity,
+            size: selectedSize,
+            image: productImage,
+            describe: describe
+        });
+    }
 
-            if (cart.length === 0) {
-                cartContainer.innerHTML = '<p>No items in the cart.</p>';
-                return;
-            }
+    saveCartToLocalStorage();
+    updateCart();
+    updateCartCount();
+}
 
-            cartContainer.innerHTML = '';
+// Update cart display
+function updateCart() {
+    const cartContainer = document.getElementById('cart');
 
-            let total = 0;
+    if (cart.length === 0) {
+        cartContainer.innerHTML = '<p>No items in the cart.</p>';
+        return;
+    }
 
-            cart.forEach(item => {
-                total += item.price * item.quantity;
+    cartContainer.innerHTML = '';
+    let total = 0;
 
-                const cartItem = document.createElement('div');
-                cartItem.classList.add('cart-item');
-                cartItem.innerHTML = `
-                    <img src="${item.image}" alt="${item.name}" style="width: 50px; height: 50px;">
-                    <span>${item.name} (x${item.quantity}) - $${(item.price * item.quantity).toFixed(2)}</span>
-                    <span>Note: ${item.note}</span>
-                    <button onclick="removeFromCart('${item.id}')">Remove</button>
-                `;
+    cart.forEach(item => {
+        total += item.price * item.quantity;
 
-                cartContainer.appendChild(cartItem);
-            });
+        const cartItem = document.createElement('div');
+        const classes = 'cart-item grid mt-2 md:grid-cols-5 gap-2 border p-2 rounded-md';
 
-            const totalElement = document.createElement('div');
-            totalElement.classList.add('total');
-            totalElement.textContent = `Total: $${total.toFixed(2)}`;
-            cartContainer.appendChild(totalElement);
-        }
+        cartItem.classList.add(...classes.split(' '));
+        cartItem.innerHTML = `
+            <div class="md:col-span-1 col-span-3"> 
+              <img src="${item.image}" alt="${item.name}" class="w-full h-full object-contain">
+            </div>
+            <div class="md:col-span-4 col-span-3 grid grid-rows-4 px-4">
+              <div class="flex justify-between">
+                <span class="text-start font-bold text-lg">${item.name}</span>   
+                <button onclick="removeFromCart('${item.id}', '${item.size}')" class="bg-red-500 text-white w-[24px] h-[24px] rounded-xl">X</button>
+              </div>
+              <div class="flex justify-between text-sm font-light">
+                  <span>${item.describe} </span>
+              </div>
+              <div class="flex justify-between">
+                <span><span class="text-start font-light">Amount: ${item.quantity}</span></span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-start font-light">Size: ${item.size}</span>
+                <span class="text-end font-semibold">${(item.price * item.quantity).toFixed(2)} USD</span>
+              </div>
+            </div>
+        `;
+        cartContainer.appendChild(cartItem);
+    });
 
-        function removeFromCart(productId) {
-            cart = cart.filter(item => item.id !== productId);
-            updateCart();
-        }
-   
+    const totalElement = document.createElement('div');
+    totalElement.classList.add('total');
+    totalElement.textContent = `Total: $${total.toFixed(2)}`;
+    cartContainer.appendChild(totalElement);
+}
+
+// Remove item from the cart
+function removeFromCart(productId, size) {
+    cart = cart.filter(item => !(item.id === productId && item.size === size));
+    saveCartToLocalStorage();
+    updateCart();
+    updateCartCount();
+}
+
+// Update cart item count
+function updateCartCount() {
+    const cartCount = document.getElementById("cartCount");
+    cartCount.textContent = cart.length;
+}
+
+// Initialize cart UI on page load
+document.addEventListener("DOMContentLoaded", () => {
+    updateCart();
+    updateCartCount();
+});
