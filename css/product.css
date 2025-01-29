@@ -86,28 +86,31 @@
 
 
 
+
+/* pop-up  */
+
 .overlay {
     position: fixed;
     top: 0;
     left: 0;
+    right: 0;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
     display: none;
-    justify-content: end;
+    justify-content: center;
     align-items: center;
-    z-index: 100;
+    z-index: 10000 !important;
 }
 
 .popup {
     background: #fff;
-    margin-top: 100px;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
-    height: 100%;
-    width: 300px;
+    height: 90%;
+    width: 70%;
 }
 
 .popup h2 {
@@ -137,7 +140,7 @@
 }
 
 .open-btn {
-    background: #007bff;
+
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -149,3 +152,68 @@
 .open-btn:hover {
     background: #0056b3;
 }
+
+
+.size-btn {
+    border: 1px solid #ccc;
+    padding: 8px 16px;
+    border-radius: 4px;
+    background-color: white;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.size-btn.selected {
+   
+    /* background-color: #9ca3af; */
+   
+    /* border-color: #ff6b6b; */
+
+    border-color:#ff6b6b ;
+}
+
+
+
+
+
+/* Base button styling */
+.add-to-cart {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animation effect */
+.add-to-cart::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease;
+}
+
+/* Trigger animation */
+.add-to-cart:active::after {
+    width: 200px;
+    height: 200px;
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+/* notifcation */
+.cart-count {
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    border-radius: 50%;
+    padding: 4px 8px;
+    margin-left: 12px;
+    vertical-align: top;
+    margin-top: -10px;
+}
+
+
+ 
