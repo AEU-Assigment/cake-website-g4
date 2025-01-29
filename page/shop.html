@@ -420,7 +420,7 @@
           // Add click event listener
           productItem.addEventListener("click", () => {
             console.log(`Clicked service ID: ${service.id}`);
-            window.location.replace('http://127.0.0.1:5500/page/product.html?product_id='+service.id);
+            window.location.replace('/page/product.html?product_id='+service.id);
           });
 
           productGrid.appendChild(productItem);
