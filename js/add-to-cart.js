@@ -20,7 +20,7 @@ function addToCart(event) {
     const productElement = document.getElementById("productDetail");
     const productId = productElement.getAttribute("data-id");
     const productName = productElement.getAttribute("data-name");
-    const productPrice = parseFloat(productElement.getAttribute("data-price")) || 0; // Default to 0 if price is not available
+    const productPrice = parseFloat(productElement.getAttribute("data-price")) || ''; // Default to 0 if price is not available
     const selectedSize = productElement.getAttribute("data-size");
     const quantityInput = document.getElementById(`quantity-${productId}`);
     const productQuantity = parseInt(quantityInput.value) || 1;
@@ -114,6 +114,13 @@ function removeFromCart(productId, size) {
 function updateCartCount() {
     const cartCount = document.getElementById("cartCount");
     cartCount.textContent = cart.length;
+    const cartNumElement = document.getElementById('cartCount');
+    if(cart.length === 0) {
+        cartNumElement.style.display = 'none'
+    } else {
+        cartNumElement.style.display = 'block'
+    }
+    
 }
 
 // Initialize cart UI on page load
