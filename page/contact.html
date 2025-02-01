@@ -22,7 +22,7 @@
           class='w-full' /></a>
 
       <div id="collapseMenu"
-        class='before:hidden max-lg:hidden lg:!block max-lg:before:fixed max-lg:before:bg-black max-lg:before:opacity-50 max-lg:before:inset-0 max-lg:before:z-50'>
+        class='max-lg:hidden lg:!block max-lg:before:fixed max-lg:before:bg-black max-lg:before:opacity-50 max-lg:before:inset-0 max-lg:before:z-50'>
         <button id="toggleClose"
           class='lg:hidden fixed top-2 right-4 z-[100] rounded-full bg-white w-9 h-9 flex items-center justify-center border'>
           <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 fill-black" viewBox="0 0 320.591 320.591">
@@ -39,10 +39,10 @@
           class="lg:flex gap-x-2 max-lg:space-y-2 max-lg:fixed max-lg:bg-[#ff4081] max-lg:w-1/2 max-lg:min-w-[300px] max-lg:top-0 max-lg:left-0 max-lg:p-6 max-lg:h-full max-lg:shadow-md max-lg:overflow-auto z-50"
           id="nav-menu">
           <li class="mb-6 hidden max-lg:block">
-            <a href="/"><img src="/src/header/logo.svg" alt="logo" class="w-36" /></a>
+            <a href="/index.html"><img src="/src/header/logo.svg" alt="logo" class="w-36" /></a>
           </li>
           <li class="max-lg:border-b border-gray-300 max-lg:py-3 px-3">
-            <a href="/"
+            <a href="/index.html"
               class="hover:bg-[#e594af] bg-transparent  p-3 rounded active-page text-white block text-[15px]">Home</a>
           </li>
           <li class="max-lg:border-b border-gray-300 max-lg:py-3 px-3">
@@ -61,13 +61,12 @@
 
       </div>
       <div class='flex max-lg:ml-auto space-x-4'>
-
         <div class="relative">
-          <div id="cartCount" class="bg-white w-5 h-5 text-center rounded-full absolute right-0"></div>
-          <button onclick="openPopup()">
-              <i  class="fa fa-shopping-cart px-4 py-2 text-xl cursor-pointer text-white" aria-hidden="true"></i>
-          </button>
-      </div>
+            <div id="cartCount" class="bg-white w-5 h-5 text-center rounded-full absolute right-0"></div>
+            <button onclick="openPopup()">
+                <i  class="fa fa-shopping-cart px-4 py-2 text-xl cursor-pointer text-white" aria-hidden="true"></i>
+            </button>
+        </div>
         <a href="/page/login.html">
 
           <button
@@ -86,7 +85,7 @@
     </div>
   </header>
   <!-- End of header -->
-    <section class="bg-white">
+    <section class="bg-white px-4">
         <div class="flex w-100" aria-label="Breadcrumb">
             <div class="mt-8 mx-8 w-1/2">
                 <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
@@ -115,7 +114,7 @@
                 </ol>
             </div>
         </div>
-        <div class="bg-[#f1f5f9]  py-8  px-4 mt-8 mx-auto max-w-screen-md">
+        <div class="bg-[#f1f5f9]  py-8 px-8 mt-8 mx-auto max-w-screen-md">
             <h4 class="mb-4 text-2xl tracking-tight font-extrabold text-gray-700">Say Something...</h4>
             <form action="#" class="space-y-8">
                 <div>
@@ -257,12 +256,10 @@
               </div>
             </div>
     </div>
-        
   </footer>
-      
-    <script src="/js/app.js"></script>
-    <script src="/js/add-to-cart.js"></script>
-    <script src="/js/pup-up.js"></script>
+  <script src="/js/app.js"></script>
+  <script src="/js/add-to-cart.js"></script>
+  <script src="/js/pup-up.js"></script>
 </body>
 
 </html>
